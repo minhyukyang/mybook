@@ -22,3 +22,5 @@ metadata-for-sharing
 url-your-book-url-like-httpsbookdown.orgyihuibookdown
 eq:binom
 thm:tri
+fig:nice-fig
+tab:nice-tab
