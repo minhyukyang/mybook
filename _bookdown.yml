@@ -1,7 +1,9 @@
 book_filename: "mybook"
 delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Chapter "
+before_chapter_script: "_common.R"
+new_session: yes
+# language:
+#   ui:
+#     chapter_name: "Chapter "
 
 output_dir: docs
