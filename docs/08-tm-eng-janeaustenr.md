@@ -1,10 +1,13 @@
+---
+output: html_document
+---
 # 제인 오스틴(Jane Austen) 작품 분석 {#tidyausten}
 
-제인 오스틴(Jane Austen)이 탈고해 출판한 소설 여섯 개를 [janeaustenr](https://cran.r-project.org/package=janeaustenr) 패키지 에서 가져온 다음 tidy 형식으로 변형해 보자. 
+제인 오스틴(Jane Austen)이 탈고해 출판한 소설 여섯 개를 [janeaustenr](https://cran.r-project.org/package=janeaustenr) 패키지 에서 가져온 다음 tidy 형식으로 변형해 보자.
 
-- janeaustenr 패키지는 텍스트를 1줄당 1행(one-row-per-line) 형식으로 제공
-- `mutate()`를 사용해 `linenumber` 수에 해당하는 만큼을 주석으로 처리함으로써 원래 줄 형식을 추적하는데 사용
-- `chapter`를 사용해 모든 장이 어디부터 나오는지 찾아낸다
+-   janeaustenr 패키지는 텍스트를 1줄당 1행(one-row-per-line) 형식으로 제공
+-   `mutate()`를 사용해 `linenumber` 수에 해당하는 만큼을 주석으로 처리함으로써 원래 줄 형식을 추적하는데 사용
+-   `chapter`를 사용해 모든 장이 어디부터 나오는지 찾아낸다
 
 
 ```r
@@ -98,8 +101,7 @@ tidy_books %>%
 ## # ... with 13,904 more rows
 ```
 
-단어 카운트(word count) 결과는 tidy data frame에 저장되었기 때문에 아래처럼 ggplot2 패키지로 직접 연결(pipe)할 수 있습니다
-(Figure \@ref(fig:plotcount)).
+단어 카운트(word count) 결과는 tidy data frame에 저장되었기 때문에 아래처럼 ggplot2 패키지로 직접 연결(pipe)할 수 있습니다 (Figure \@ref(fig:plotcount)).
 
 
 ```r
@@ -121,5 +123,5 @@ tidy_books %>%
 
 ## Ref.
 
-1. [janeaustenr](https://cran.r-project.org/package=janeaustenr)
-2. [tokenizers](https://github.com/ropensci/tokenizers)
+1.  [janeaustenr](https://cran.r-project.org/package=janeaustenr)
+2.  [tokenizers](https://github.com/ropensci/tokenizers)
