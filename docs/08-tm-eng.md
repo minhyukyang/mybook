@@ -1,4 +1,4 @@
-# Text Mining (Eng.)
+# Text Mining (Eng)
 
 ## 제인 오스틴(Jane Austen) 작품 분석
 
@@ -116,7 +116,7 @@ tidy_books %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-tm-eng-janeaustenr_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="100%" />
+<img src="08-tm-eng_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="100%" />
 <p class="caption">(\#fig:plotcount)The most common words in Jane Austen's novels</p>
 </div>
 

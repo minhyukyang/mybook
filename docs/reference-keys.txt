@@ -24,3 +24,9 @@ eq:binom
 thm:tri
 fig:nice-fig
 tab:nice-tab
+tidyausten
+ref.
+fig:plotcount
+제인-오스틴jane-austen-작품-분석
+text-mining-eng.
+text-mining-eng
