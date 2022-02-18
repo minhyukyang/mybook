@@ -1,14 +1,14 @@
 # Text Mining (Eng) {#tm-eng}
 
-## ì œì¸ ì˜¤ìŠ¤í‹´(Jane Austen) ìž‘í’ˆ ë¶„ì„ {#janeaustern}
+## Á¦ÀÎ ¿À½ºÆ¾(Jane Austen) ÀÛÇ° ºÐ¼® {#janeaustenr}
 
-> ì¶œì²˜ : Rë¡œ ë°°ìš°ëŠ” í…ìŠ¤íŠ¸ ë§ˆì´ë‹
+> ÃâÃ³ : R·Î ¹è¿ì´Â ÅØ½ºÆ® ¸¶ÀÌ´×
 
-ì œì¸ ì˜¤ìŠ¤í‹´(Jane Austen)ì´ íƒˆê³ í•´ ì¶œíŒí•œ ì†Œì„¤ ì—¬ì„¯ ê°œë¥¼ [janeaustenr](https://cran.r-project.org/package=janeaustenr) íŒ¨í‚¤ì§€ ì—ì„œ ê°€ì ¸ì˜¨ ë‹¤ìŒ tidy í˜•ì‹ìœ¼ë¡œ ë³€í˜•í•´ ë³´ìž.
+Á¦ÀÎ ¿À½ºÆ¾(Jane Austen)ÀÌ Å»°íÇØ ÃâÆÇÇÑ ¼Ò¼³ ¿©¼¸ °³¸¦ [janeaustenr](https://cran.r-project.org/package=janeaustenr) ÆÐÅ°Áö ¿¡¼­ °¡Á®¿Â ´ÙÀ½ tidy Çü½ÄÀ¸·Î º¯ÇüÇØ º¸ÀÚ.
 
--   janeaustenr íŒ¨í‚¤ì§€ëŠ” í…ìŠ¤íŠ¸ë¥¼ 1ì¤„ë‹¹ 1í–‰(one-row-per-line) í˜•ì‹ìœ¼ë¡œ ì œê³µ
--   `mutate()`ë¥¼ ì‚¬ìš©í•´ `linenumber` ìˆ˜ì— í•´ë‹¹í•˜ëŠ” ë§Œí¼ì„ ì£¼ì„ìœ¼ë¡œ ì²˜ë¦¬í•¨ìœ¼ë¡œì¨ ì›ëž˜ ì¤„ í˜•ì‹ì„ ì¶”ì í•˜ëŠ”ë° ì‚¬ìš©
--   `chapter`ë¥¼ ì‚¬ìš©í•´ ëª¨ë“  ìž¥ì´ ì–´ë””ë¶€í„° ë‚˜ì˜¤ëŠ”ì§€ ì°¾ì•„ë‚¸ë‹¤
+-   janeaustenr ÆÐÅ°Áö´Â ÅØ½ºÆ®¸¦ 1ÁÙ´ç 1Çà(one-row-per-line) Çü½ÄÀ¸·Î Á¦°ø
+-   `mutate()`¸¦ »ç¿ëÇØ `linenumber` ¼ö¿¡ ÇØ´çÇÏ´Â ¸¸Å­À» ÁÖ¼®À¸·Î Ã³¸®ÇÔÀ¸·Î½á ¿ø·¡ ÁÙ Çü½ÄÀ» ÃßÀûÇÏ´Âµ¥ »ç¿ë
+-   `chapter`¸¦ »ç¿ëÇØ ¸ðµç ÀåÀÌ ¾îµðºÎÅÍ ³ª¿À´ÂÁö Ã£¾Æ³½´Ù
 
 
 ```r
@@ -41,7 +41,7 @@ original_books
 #> # ... with 73,412 more rows
 ```
 
-ì´ê²ƒì„ tidy ë°ì´í„°ì…‹ìœ¼ë¡œ ì‚¬ìš©í•˜ë ¤ë©´ `unnest_tokens()` í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•´ **1í–‰ë‹¹ 1í† í°(one-token-per-row)** í˜•ì‹ìœ¼ë¡œ êµ¬ì„±í•´ì•¼ í•œë‹¤.
+ÀÌ°ÍÀ» tidy µ¥ÀÌÅÍ¼ÂÀ¸·Î »ç¿ëÇÏ·Á¸é `unnest_tokens()` ÇÔ¼ö¸¦ »ç¿ëÇØ **1Çà´ç 1ÅäÅ«(one-token-per-row)** Çü½ÄÀ¸·Î ±¸¼ºÇØ¾ß ÇÑ´Ù.
 
 
 ```r
@@ -66,9 +66,9 @@ tidy_books
 #> # ... with 725,045 more rows
 ```
 
-ì´ í•¨ìˆ˜ëŠ” [tokenizers](https://github.com/ropensci/tokenizers)ë¥¼ ì‚¬ìš©í•´ ì›ëž˜ ë°ì´í„° í”„ë ˆìž„ì— ìžˆëŠ” í…ìŠ¤íŠ¸ì˜ ê° í–‰ì„ í† í°ìœ¼ë¡œ ë¶„ë¦¬í•œë‹¤. ê¸°ë³¸ í† í°í™”ëŠ” ë‹¨ì–´ì— ëŒ€í•œ ê²ƒì´ì§€ë§Œ ë‹¤ë¥¸ ì˜µì…˜ì„ ì‚¬ìš©í•˜ë©´ ë¬¸ìž, ì—”ê·¸ëž¨, ë¬¸ìž¥, ì¤„, ë‹¨ë½ ë‹¨ìœ„ë¡œ í† í°í˜¸í•˜ í•  ìˆ˜ ìžˆê³ , ë˜ëŠ” ì •ê·œ í‘œí˜€ë…¸ì‹ íŒ¨í„´ì„ ì‚¬ìš©í•´ì„œ ë¶„ë¦¬í•  ìˆ˜ ìžˆë‹¤.
+ÀÌ ÇÔ¼ö´Â [tokenizers](https://github.com/ropensci/tokenizers)¸¦ »ç¿ëÇØ ¿ø·¡ µ¥ÀÌÅÍ ÇÁ·¹ÀÓ¿¡ ÀÖ´Â ÅØ½ºÆ®ÀÇ °¢ ÇàÀ» ÅäÅ«À¸·Î ºÐ¸®ÇÑ´Ù. ±âº» ÅäÅ«È­´Â ´Ü¾î¿¡ ´ëÇÑ °ÍÀÌÁö¸¸ ´Ù¸¥ ¿É¼ÇÀ» »ç¿ëÇÏ¸é ¹®ÀÚ, ¿£±×·¥, ¹®Àå, ÁÙ, ´Ü¶ô ´ÜÀ§·Î ÅäÅ«È£ÇÏ ÇÒ ¼ö ÀÖ°í, ¶Ç´Â Á¤±Ô Ç¥Çô³ë½Ä ÆÐÅÏÀ» »ç¿ëÇØ¼­ ºÐ¸®ÇÒ ¼ö ÀÖ´Ù.
 
-ë¶ˆìš©ì–´(stop words)ëŠ” ë¶„ì„ì— ìœ ìš©í•˜ì§€ ì•Šì€ ë‹¨ì–´ë“¤ì„ ë§í•˜ë©°, ì¼ë°˜ì ìœ¼ë¡œ ì˜ì–´ì˜ 'the', 'of', 'to' ë“±ê³¼ ê°™ì€ ë§¤ìš° ì „í˜•ì ì¸ ë‹¨ì–´ë¥¼ ë§í•œë‹¤. `anti_join()`ì„ ì‚¬ìš©í•´ ë¶ˆìš©ì–´ë¥¼ ì œê±°í•  ìˆ˜ ìžˆë‹¤. ì´ ë•Œ, ì‚¬ìš©ë˜ëŠ” ë¶ˆìš©ì–´ëŠ” `stop_words`ë¥¼ ì‚¬ìš©í•œë‹¤.
+ºÒ¿ë¾î(stop words)´Â ºÐ¼®¿¡ À¯¿ëÇÏÁö ¾ÊÀº ´Ü¾îµéÀ» ¸»ÇÏ¸ç, ÀÏ¹ÝÀûÀ¸·Î ¿µ¾îÀÇ 'the', 'of', 'to' µî°ú °°Àº ¸Å¿ì ÀüÇüÀûÀÎ ´Ü¾î¸¦ ¸»ÇÑ´Ù. `anti_join()`À» »ç¿ëÇØ ºÒ¿ë¾î¸¦ Á¦°ÅÇÒ ¼ö ÀÖ´Ù. ÀÌ ¶§, »ç¿ëµÇ´Â ºÒ¿ë¾î´Â `stop_words`¸¦ »ç¿ëÇÑ´Ù.
 
 
 ```r
@@ -78,9 +78,9 @@ tidy_books <- tidy_books %>%
   anti_join(stop_words)
 ```
 
-tidytext íŒ¨í‚¤ì§€ì˜ `stop_words` ë°ì´í„°ì…‹ì—ëŠ” 3ê°œì˜ ë¶ˆìš©ì–´ ìš©ì–´ì§‘(lexicon)ì´ ë“¤ì–´ìžˆë‹¤. ì§€ê¸ˆì²˜ëŸ¼ ëª¨ë‘ í•¨ê»˜ ì‚¬ìš©í•  ìˆ˜ë„ ìžˆê³ , íŠ¹ì • ë¶„ì„ì— ë” ì í•©í•œ ê²½ìš° `filter()`ë¥¼ ì‚¬ìš©í•´ 1ê°œ ë¶ˆìš©ì–´ ì§‘í•©ë§Œ ì‚¬ìš©í•  ìˆ˜ë„ ìžˆë‹¤.
+tidytext ÆÐÅ°ÁöÀÇ `stop_words` µ¥ÀÌÅÍ¼Â¿¡´Â 3°³ÀÇ ºÒ¿ë¾î ¿ë¾îÁý(lexicon)ÀÌ µé¾îÀÖ´Ù. Áö±ÝÃ³·³ ¸ðµÎ ÇÔ²² »ç¿ëÇÒ ¼öµµ ÀÖ°í, Æ¯Á¤ ºÐ¼®¿¡ ´õ ÀûÇÕÇÑ °æ¿ì `filter()`¸¦ »ç¿ëÇØ 1°³ ºÒ¿ë¾î ÁýÇÕ¸¸ »ç¿ëÇÒ ¼öµµ ÀÖ´Ù.
 
-ë˜í•œ, dplyrì˜ `count()`ë¥¼ ì‚¬ìš©í•´ ëª¨ë“  ë„ì„œì—ì„œ ê°€ìž¥ í”í•˜ê²Œ ë‚˜ì˜¤ëŠ” ë‹¨ì–´ë¥¼ ì°¾ì„ ìˆ˜ ìžˆë‹¤.
+¶ÇÇÑ, dplyrÀÇ `count()`¸¦ »ç¿ëÇØ ¸ðµç µµ¼­¿¡¼­ °¡Àå ÈçÇÏ°Ô ³ª¿À´Â ´Ü¾î¸¦ Ã£À» ¼ö ÀÖ´Ù.
 
 
 ```r
@@ -102,7 +102,7 @@ tidy_books %>%
 #> # ... with 13,904 more rows
 ```
 
-ë‹¨ì–´ ì¹´ìš´íŠ¸(word count) ê²°ê³¼ëŠ” tidy data frameì— ì €ìž¥ë˜ì—ˆê¸° ë•Œë¬¸ì— ì•„ëž˜ì²˜ëŸ¼ ggplot2 íŒ¨í‚¤ì§€ë¡œ ì§ì ‘ ì—°ê²°(pipe)í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤ (Figure \@ref(fig:plotcount)).
+´Ü¾î Ä«¿îÆ®(word count) °á°ú´Â tidy data frame¿¡ ÀúÀåµÇ¾ú±â ¶§¹®¿¡ ¾Æ·¡Ã³·³ ggplot2 ÆÐÅ°Áö·Î Á÷Á¢ ¿¬°á(pipe)ÇÒ ¼ö ÀÖ½À´Ï´Ù (Figure \@ref(fig:plotcount)).
 
 
 ```r
@@ -122,7 +122,45 @@ tidy_books %>%
 <p class="caption">(\#fig:plotcount)The most common words in Jane Austen's novels</p>
 </div>
 
-## Ref.
+## gutenbergr ÆÐÅ°Áö {#gutenbergr}
 
-1.  [janeaustenr](https://cran.r-project.org/package=janeaustenr)
-2.  [tokenizers](https://github.com/ropensci/tokenizers)
+[gutenbergr](https://github.com/ropensci/gutenbergr) ÆÐÅ°Áö´Â ±¸ÅÙº£¸£Å© ÇÁ·ÎÁ§Æ® ¸ðÀ½Áý Áß °ø°ø ÀúÀÛ¹°¿¡ ÇØ´çÇÏ´Â ÅØ½ºÆ®¿¡ Á¢±ÙÇÒ ¼ö ÀÖ°Ô ÇÑ´Ù. ÀÌ ÆÐÅ°Áö¿¡´Â µµ¼­¸¦ ³»·Á¹Þ±â À§ÇÑ µµ±¸¿Í °ü½ÉÀÖ´Â ÀÛÇ°À» Ã£´Âµ¥ »ç¿ëÇÒ ¼ö ÀÖ´Â ±¸ÅÙº£¸£Å© ÇÁ·ÎÁ§Æ® ¸ÞÅ¸µ¥ÀÌÅÍÀÇ ÀüÃ¼ µ¥ÀÌÅÍ¼ÂÀÌ Æ÷ÇÔµÇ¾î ÀÖ´Ù. 
+
+> gutenbergr¿¡ ´ëÇÑ ÀÚ¼¼ÇÑ ³»¿ëÀº rOpenSciÀÇ ÆÐÅ°Áö Æ©Åä¸®¾ó(https://ropensci.org/tutorials/gutenbergr_tutorial/)À» ÂüÁ¶ÇÏÀÚ. 
+
+### ´Ü¾î ºóµµ
+
+¸ÕÀú 19¼¼±â ¸»ºÎÅÍ 20¼¼±â ÃÊ¹Ý¿¡ °ÉÃÄ »ì¾Ò´ø À£½ºÀÇ °ø»ó °úÇÐ ¼Ò¼³°ú ÆÇÅ¸Áö ¼Ò¼³À» »ìÆìº¸ÀÚ.
+
+- [*The Time Machine*](https://www.gutenberg.org/ebooks/35)
+- [*The War of the Worlds*](https://www.gutenberg.org/ebooks/36)
+- [*The Invisible Man*](https://www.gutenberg.org/ebooks/5230)
+- [*The Island of Doctor Moreau*](https://www.gutenberg.org/ebooks/159)
+
+¿ì¸®´Â `gutenberg_download()`¿Í °¢ ¼Ò¼³¿¡ ´ëÇÑ ±¸ÅÙº£¸£Å© ÇÁ·ÎÁ§Æ® ½Äº° ¹øÈ£¸¦ »ç¿ëÇØ ÀÌ·¯ÇÑ ÀÛÇ°¿¡ ¾×¼¼½ºÇÒ ¼ö ÀÖ´Ù.
+
+
+```r
+library(gutenbergr)
+
+hgwells <- gutenberg_download(c(35, 36, 5230, 159))
+
+tidy_hgwells <- hgwells %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words)
+```
+
+Àç¹Ì »ï¾Æ¼­ À£½ºÀÇ ¼Ò¼³¿¡ °¡Àå °øÅëÀûÀ¸·Î ³ª¿À´Â ´Ü¾î´Â ¹«¾ùÀÎÁö ¾Ë¾Æº¸ÀÚ.
+
+
+
+
+
+
+
+
+
+
+
+
+

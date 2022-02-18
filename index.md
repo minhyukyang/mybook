@@ -1,7 +1,7 @@
 --- 
 title: "R Book"
 author: "Min Hyuk Yang"
-date: "`r Sys.Date()`"
+date: "2022-02-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -17,9 +17,4 @@ github-repo: rstudio/bookdown-demo
 나만의 R Book 만들기기
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+
