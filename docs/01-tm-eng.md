@@ -23,20 +23,20 @@ original_books <- austen_books() %>%
   ungroup()
 
 original_books
-## # A tibble: 73,422 x 4
-##    text                    book                linenumber chapter
-##    <chr>                   <fct>                    <int>   <int>
-##  1 "SENSE AND SENSIBILITY" Sense & Sensibility          1       0
-##  2 ""                      Sense & Sensibility          2       0
-##  3 "by Jane Austen"        Sense & Sensibility          3       0
-##  4 ""                      Sense & Sensibility          4       0
-##  5 "(1811)"                Sense & Sensibility          5       0
-##  6 ""                      Sense & Sensibility          6       0
-##  7 ""                      Sense & Sensibility          7       0
-##  8 ""                      Sense & Sensibility          8       0
-##  9 ""                      Sense & Sensibility          9       0
-## 10 "CHAPTER 1"             Sense & Sensibility         10       1
-## # ... with 73,412 more rows
+#> # A tibble: 73,422 x 4
+#>    text                    book                linenumber chapter
+#>    <chr>                   <fct>                    <int>   <int>
+#>  1 "SENSE AND SENSIBILITY" Sense & Sensibility          1       0
+#>  2 ""                      Sense & Sensibility          2       0
+#>  3 "by Jane Austen"        Sense & Sensibility          3       0
+#>  4 ""                      Sense & Sensibility          4       0
+#>  5 "(1811)"                Sense & Sensibility          5       0
+#>  6 ""                      Sense & Sensibility          6       0
+#>  7 ""                      Sense & Sensibility          7       0
+#>  8 ""                      Sense & Sensibility          8       0
+#>  9 ""                      Sense & Sensibility          9       0
+#> 10 "CHAPTER 1"             Sense & Sensibility         10       1
+#> # ... with 73,412 more rows
 ```
 
 이것을 tidy 데이터셋으로 사용하려면 `unnest_tokens()` 함수를 사용해 **1행당 1토큰(one-token-per-row)** 형식으로 구성해야 한다.
@@ -48,20 +48,20 @@ tidy_books <- original_books %>%
   unnest_tokens(word, text)
 
 tidy_books
-## # A tibble: 725,055 x 4
-##    book                linenumber chapter word       
-##    <fct>                    <int>   <int> <chr>      
-##  1 Sense & Sensibility          1       0 sense      
-##  2 Sense & Sensibility          1       0 and        
-##  3 Sense & Sensibility          1       0 sensibility
-##  4 Sense & Sensibility          3       0 by         
-##  5 Sense & Sensibility          3       0 jane       
-##  6 Sense & Sensibility          3       0 austen     
-##  7 Sense & Sensibility          5       0 1811       
-##  8 Sense & Sensibility         10       1 chapter    
-##  9 Sense & Sensibility         10       1 1          
-## 10 Sense & Sensibility         13       1 the        
-## # ... with 725,045 more rows
+#> # A tibble: 725,055 x 4
+#>    book                linenumber chapter word       
+#>    <fct>                    <int>   <int> <chr>      
+#>  1 Sense & Sensibility          1       0 sense      
+#>  2 Sense & Sensibility          1       0 and        
+#>  3 Sense & Sensibility          1       0 sensibility
+#>  4 Sense & Sensibility          3       0 by         
+#>  5 Sense & Sensibility          3       0 jane       
+#>  6 Sense & Sensibility          3       0 austen     
+#>  7 Sense & Sensibility          5       0 1811       
+#>  8 Sense & Sensibility         10       1 chapter    
+#>  9 Sense & Sensibility         10       1 1          
+#> 10 Sense & Sensibility         13       1 the        
+#> # ... with 725,045 more rows
 ```
 
 이 함수는 [tokenizers](https://github.com/ropensci/tokenizers)를 사용해 원래 데이터 프레임에 있는 텍스트의 각 행을 토큰으로 분리한다. 기본 토큰화는 단어에 대한 것이지만 다른 옵션을 사용하면 문자, 엔그램, 문장, 줄, 단락 단위로 토큰호하 할 수 있고, 또는 정규 표혀노식 패턴을 사용해서 분리할 수 있다.
@@ -84,20 +84,20 @@ tidytext 패키지의 `stop_words` 데이터셋에는 3개의 불용어 용어�
 ```r
 tidy_books %>%
   count(word, sort = TRUE) 
-## # A tibble: 13,914 x 2
-##    word       n
-##    <chr>  <int>
-##  1 miss    1855
-##  2 time    1337
-##  3 fanny    862
-##  4 dear     822
-##  5 lady     817
-##  6 sir      806
-##  7 day      797
-##  8 emma     787
-##  9 sister   727
-## 10 house    699
-## # ... with 13,904 more rows
+#> # A tibble: 13,914 x 2
+#>    word       n
+#>    <chr>  <int>
+#>  1 miss    1855
+#>  2 time    1337
+#>  3 fanny    862
+#>  4 dear     822
+#>  5 lady     817
+#>  6 sir      806
+#>  7 day      797
+#>  8 emma     787
+#>  9 sister   727
+#> 10 house    699
+#> # ... with 13,904 more rows
 ```
 
 단어 카운트(word count) 결과는 tidy data frame에 저장되었기 때문에 아래처럼 ggplot2 패키지로 직접 연결(pipe)할 수 있습니다 (Figure \@ref(fig:plotcount)).
@@ -116,7 +116,7 @@ tidy_books %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="08-tm-eng_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="100%" />
+<img src="01-tm-eng_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="100%" />
 <p class="caption">(\#fig:plotcount)The most common words in Jane Austen's novels</p>
 </div>
 

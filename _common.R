@@ -1,5 +1,5 @@
 knitr::opts_chunk$set(
-  comment = "##",
+  comment = "#>",
   collapse = TRUE,
   cache = TRUE,
   warning = FALSE,
@@ -18,6 +18,3 @@ options(crayon.enabled = FALSE)
 
 suppressPackageStartupMessages(library(tidyverse))
 theme_set(theme_light())
-
-library(scales)
-library(methods)
