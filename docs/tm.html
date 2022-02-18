@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Text Mining (Eng) | R Book</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Text Mining (Eng) | R Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Text Mining (Eng) | R Book" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Min Hyuk Yang" />
+
+
+<meta name="date" content="2022-02-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="references.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>2</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>2.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>3.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="8" data-path="tm.html"><a href="tm.html"><i class="fa fa-check"></i><b>8</b> Text Mining (Eng)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tm.html"><a href="tm.html#janeaustern"><i class="fa fa-check"></i><b>8.1</b> 제인 오스틴(Jane Austen) 작품 분석</a></li>
+<li class="chapter" data-level="8.2" data-path="tm.html"><a href="tm.html#ref."><i class="fa fa-check"></i><b>8.2</b> Ref.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tm" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Text Mining (Eng)</h1>
+<div id="janeaustern" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> 제인 오스틴(Jane Austen) 작품 분석</h2>
+<p>제인 오스틴(Jane Austen)이 탈고해 출판한 소설 여섯 개를 <a href="https://cran.r-project.org/package=janeaustenr">janeaustenr</a> 패키지 에서 가져온 다음 tidy 형식으로 변형해 보자.</p>
+<ul>
+<li>janeaustenr 패키지는 텍스트를 1줄당 1행(one-row-per-line) 형식으로 제공</li>
+<li><code>mutate()</code>를 사용해 <code>linenumber</code> 수에 해당하는 만큼을 주석으로 처리함으로써 원래 줄 형식을 추적하는데 사용</li>
+<li><code>chapter</code>를 사용해 모든 장이 어디부터 나오는지 찾아낸다</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tm.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janeaustenr)</span>
+<span id="cb1-2"><a href="tm.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="tm.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-4"><a href="tm.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="tm.html#cb1-5" aria-hidden="true" tabindex="-1"></a>original_books <span class="ot">&lt;-</span> <span class="fu">austen_books</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="tm.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(book) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="tm.html#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">linenumber =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb1-8"><a href="tm.html#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">chapter =</span> <span class="fu">cumsum</span>(<span class="fu">str_detect</span>(text, </span>
+<span id="cb1-9"><a href="tm.html#cb1-9" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">regex</span>(<span class="st">&quot;^chapter [</span><span class="sc">\\</span><span class="st">divxlc]&quot;</span>,</span>
+<span id="cb1-10"><a href="tm.html#cb1-10" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">ignore_case =</span> <span class="cn">TRUE</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-11"><a href="tm.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb1-12"><a href="tm.html#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="tm.html#cb1-13" aria-hidden="true" tabindex="-1"></a>original_books</span>
+<span id="cb1-14"><a href="tm.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 73,422 x 4</span></span>
+<span id="cb1-15"><a href="tm.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">##    text                    book                linenumber chapter</span></span>
+<span id="cb1-16"><a href="tm.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;                   &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt;</span></span>
+<span id="cb1-17"><a href="tm.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 &quot;SENSE AND SENSIBILITY&quot; Sense &amp; Sensibility          1       0</span></span>
+<span id="cb1-18"><a href="tm.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 &quot;&quot;                      Sense &amp; Sensibility          2       0</span></span>
+<span id="cb1-19"><a href="tm.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 &quot;by Jane Austen&quot;        Sense &amp; Sensibility          3       0</span></span>
+<span id="cb1-20"><a href="tm.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 &quot;&quot;                      Sense &amp; Sensibility          4       0</span></span>
+<span id="cb1-21"><a href="tm.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 &quot;(1811)&quot;                Sense &amp; Sensibility          5       0</span></span>
+<span id="cb1-22"><a href="tm.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 &quot;&quot;                      Sense &amp; Sensibility          6       0</span></span>
+<span id="cb1-23"><a href="tm.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 &quot;&quot;                      Sense &amp; Sensibility          7       0</span></span>
+<span id="cb1-24"><a href="tm.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 &quot;&quot;                      Sense &amp; Sensibility          8       0</span></span>
+<span id="cb1-25"><a href="tm.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 &quot;&quot;                      Sense &amp; Sensibility          9       0</span></span>
+<span id="cb1-26"><a href="tm.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 &quot;CHAPTER 1&quot;             Sense &amp; Sensibility         10       1</span></span>
+<span id="cb1-27"><a href="tm.html#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="do">## # ... with 73,412 more rows</span></span></code></pre></div>
+<p>이것을 tidy 데이터셋으로 사용하려면 <code>unnest_tokens()</code> 함수를 사용해 <strong>1행당 1토큰(one-token-per-row)</strong> 형식으로 구성해야 한다.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tm.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb2-2"><a href="tm.html#cb2-2" aria-hidden="true" tabindex="-1"></a>tidy_books <span class="ot">&lt;-</span> original_books <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="tm.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb2-4"><a href="tm.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="tm.html#cb2-5" aria-hidden="true" tabindex="-1"></a>tidy_books</span>
+<span id="cb2-6"><a href="tm.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 725,055 x 4</span></span>
+<span id="cb2-7"><a href="tm.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">##    book                linenumber chapter word       </span></span>
+<span id="cb2-8"><a href="tm.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      </span></span>
+<span id="cb2-9"><a href="tm.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Sense &amp; Sensibility          1       0 sense      </span></span>
+<span id="cb2-10"><a href="tm.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Sense &amp; Sensibility          1       0 and        </span></span>
+<span id="cb2-11"><a href="tm.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Sense &amp; Sensibility          1       0 sensibility</span></span>
+<span id="cb2-12"><a href="tm.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Sense &amp; Sensibility          3       0 by         </span></span>
+<span id="cb2-13"><a href="tm.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Sense &amp; Sensibility          3       0 jane       </span></span>
+<span id="cb2-14"><a href="tm.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Sense &amp; Sensibility          3       0 austen     </span></span>
+<span id="cb2-15"><a href="tm.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Sense &amp; Sensibility          5       0 1811       </span></span>
+<span id="cb2-16"><a href="tm.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Sense &amp; Sensibility         10       1 chapter    </span></span>
+<span id="cb2-17"><a href="tm.html#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Sense &amp; Sensibility         10       1 1          </span></span>
+<span id="cb2-18"><a href="tm.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Sense &amp; Sensibility         13       1 the        </span></span>
+<span id="cb2-19"><a href="tm.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="do">## # ... with 725,045 more rows</span></span></code></pre></div>
+<p>이 함수는 <a href="https://github.com/ropensci/tokenizers">tokenizers</a>를 사용해 원래 데이터 프레임에 있는 텍스트의 각 행을 토큰으로 분리한다. 기본 토큰화는 단어에 대한 것이지만 다른 옵션을 사용하면 문자, 엔그램, 문장, 줄, 단락 단위로 토큰호하 할 수 있고, 또는 정규 표혀노식 패턴을 사용해서 분리할 수 있다.</p>
+<p>불용어(stop words)는 분석에 유용하지 않은 단어들을 말하며, 일반적으로 영어의 ‘the,’ ‘of,’ ‘to’ 등과 같은 매우 전형적인 단어를 말한다. <code>anti_join()</code>을 사용해 불용어를 제거할 수 있다. 이 때, 사용되는 불용어는 <code>stop_words</code>를 사용한다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tm.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(stop_words)</span>
+<span id="cb3-2"><a href="tm.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="tm.html#cb3-3" aria-hidden="true" tabindex="-1"></a>tidy_books <span class="ot">&lt;-</span> tidy_books <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="tm.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span></code></pre></div>
+<p>tidytext 패키지의 <code>stop_words</code> 데이터셋에는 3개의 불용어 용어집(lexicon)이 들어있다. 지금처럼 모두 함께 사용할 수도 있고, 특정 분석에 더 적합한 경우 <code>filter()</code>를 사용해 1개 불용어 집합만 사용할 수도 있다.</p>
+<p>또한, dplyr의 <code>count()</code>를 사용해 모든 도서에서 가장 흔하게 나오는 단어를 찾을 수 있다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tm.html#cb4-1" aria-hidden="true" tabindex="-1"></a>tidy_books <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="tm.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb4-3"><a href="tm.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 13,914 x 2</span></span>
+<span id="cb4-4"><a href="tm.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">##    word       n</span></span>
+<span id="cb4-5"><a href="tm.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;  &lt;int&gt;</span></span>
+<span id="cb4-6"><a href="tm.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 miss    1855</span></span>
+<span id="cb4-7"><a href="tm.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 time    1337</span></span>
+<span id="cb4-8"><a href="tm.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 fanny    862</span></span>
+<span id="cb4-9"><a href="tm.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 dear     822</span></span>
+<span id="cb4-10"><a href="tm.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 lady     817</span></span>
+<span id="cb4-11"><a href="tm.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 sir      806</span></span>
+<span id="cb4-12"><a href="tm.html#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 day      797</span></span>
+<span id="cb4-13"><a href="tm.html#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 emma     787</span></span>
+<span id="cb4-14"><a href="tm.html#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 sister   727</span></span>
+<span id="cb4-15"><a href="tm.html#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 house    699</span></span>
+<span id="cb4-16"><a href="tm.html#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## # ... with 13,904 more rows</span></span></code></pre></div>
+<p>단어 카운트(word count) 결과는 tidy data frame에 저장되었기 때문에 아래처럼 ggplot2 패키지로 직접 연결(pipe)할 수 있습니다 (Figure <a href="tm.html#fig:plotcount">8.1</a>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tm.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="tm.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="tm.html#cb5-3" aria-hidden="true" tabindex="-1"></a>tidy_books <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="tm.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="tm.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">600</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="tm.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">reorder</span>(word, n)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="tm.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, word)) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="tm.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb5-9"><a href="tm.html#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plotcount"></span>
+<img src="08-tm-eng_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="100%" />
+<p class="caption">
+Figure 8.1: The most common words in Jane Austen’s novels
+</p>
+</div>
+</div>
+<div id="ref." class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Ref.</h2>
+<ol style="list-style-type: decimal">
+<li><a href="https://cran.r-project.org/package=janeaustenr">janeaustenr</a></li>
+<li><a href="https://github.com/ropensci/tokenizers">tokenizers</a></li>
+</ol>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
+</div>
+<div class="csl-entry">
+———. 2021. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/minhyukyang/mybook/edit/master/08-tm-eng.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

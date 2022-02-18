@@ -6,3 +6,12 @@ text-mining-eng
 제인-오스틴jane-austen-작품-분석
 ref.
 fig:plotcount
+<<<<<<< HEAD
+=======
+제인-오스틴jane-austen-작품-분석
+text-mining-eng.
+text-mining-eng
+janeaustern
+tm
+tm-eng
+>>>>>>> f62d6981aedf6bcc29c9dbd128ad90787c5e9933

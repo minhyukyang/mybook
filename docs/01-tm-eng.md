@@ -1,6 +1,6 @@
-# Text Mining (Eng)
+# Text Mining (Eng) {#tm-eng}
 
-## 제인 오스틴(Jane Austen) 작품 분석
+## 제인 오스틴(Jane Austen) 작품 분석 {#janeaustern}
 
 제인 오스틴(Jane Austen)이 탈고해 출판한 소설 여섯 개를 [janeaustenr](https://cran.r-project.org/package=janeaustenr) 패키지 에서 가져온 다음 tidy 형식으로 변형해 보자.
 
