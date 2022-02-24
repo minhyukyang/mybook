@@ -13,3 +13,7 @@ janeaustern
 tm
 tm-eng
 >>>>>>> f62d6981aedf6bcc29c9dbd128ad90787c5e9933
+fig:plotcompare
+janeaustenr
+gutenbergr
+단어-빈도

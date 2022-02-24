@@ -1,6 +1,6 @@
 # Text Mining (Eng) {#tm-eng}
 
-## 제인 오스틴(Jane Austen) 작품 분석 {#janeaustenr}
+## janeaustenr {#janeaustenr}
 
 > 출처 : R로 배우는 텍스트 마이닝
 
@@ -45,6 +45,8 @@ data(stop_words)
 
 tidy_books <- tidy_books %>%
   anti_join(stop_words)
+
+tidy_books
 ```
 
 tidytext 패키지의 `stop_words` 데이터셋에는 3개의 불용어 용어집(lexicon)이 들어있다. 지금처럼 모두 함께 사용할 수도 있고, 특정 분석에 더 적합한 경우 `filter()`를 사용해 1개 불용어 집합만 사용할 수도 있다.
@@ -70,7 +72,7 @@ tidy_books %>%
   labs(y = NULL)
 ```
 
-## gutenbergr 패키지 {#gutenbergr}
+## gutenbergr {#gutenbergr}
 
 [gutenbergr](https://github.com/ropensci/gutenbergr) 패키지는 구텐베르크 프로젝트 모음집 중 공공 저작물에 해당하는 텍스트에 접근할 수 있게 한다. 이 패키지에는 도서를 내려받기 위한 도구와 관심있는 작품을 찾는데 사용할 수 있는 구텐베르크 프로젝트 메타데이터의 전체 데이터셋이 포함되어 있다. 
 
@@ -87,7 +89,7 @@ tidy_books %>%
 
 우리는 `gutenberg_download()`와 각 소설에 대한 구텐베르크 프로젝트 식별 번호를 사용해 이러한 작품에 액세스할 수 있다.
 
-```{r eval = FALSE}
+```{r tidy_hgwells}
 library(gutenbergr)
 
 hgwells <- gutenberg_download(c(35, 36, 5230, 159))
@@ -114,7 +116,7 @@ tidy_hgwells %>%
 
 각 소설에 구텐베르크 프로젝트 식별 번호를 다시 사용하고 `gutenberg_download()`를 사용하면 해당 텍스트에 액세스할 수 있다.
 
-```{r eval = FALSE}
+```{r tidy_bronte}
 bronte <- gutenberg_download(c(1260, 768, 969, 9182, 767))
 
 tidy_bronte <- bronte %>%

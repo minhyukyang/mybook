@@ -39,7 +39,7 @@ set in the _output.yml file.</p>" />
   
 <link rel="prev" href="index.html"/>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -151,8 +151,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="tm-eng.html"><a href="tm-eng.html"><i class="fa fa-check"></i><b>2</b> Text Mining (Eng)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="tm-eng.html"><a href="tm-eng.html#janeaustern"><i class="fa fa-check"></i><b>2.1</b> 제인 오스틴(Jane Austen) 작품 분석</a></li>
-<li class="chapter" data-level="2.2" data-path="tm-eng.html"><a href="tm-eng.html#ref."><i class="fa fa-check"></i><b>2.2</b> Ref.</a></li>
+<li class="chapter" data-level="2.1" data-path="tm-eng.html"><a href="tm-eng.html#janeaustenr"><i class="fa fa-check"></i><b>2.1</b> janeaustenr</a></li>
+<li class="chapter" data-level="2.2" data-path="tm-eng.html"><a href="tm-eng.html#gutenbergr"><i class="fa fa-check"></i><b>2.2</b> gutenbergr</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="tm-eng.html"><a href="tm-eng.html#단어-빈도"><i class="fa fa-check"></i><b>2.2.1</b> 단어 빈도</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -176,8 +179,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tm-eng" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Text Mining (Eng)</h1>
-<div id="janeaustern" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> 제인 오스틴(Jane Austen) 작품 분석</h2>
+<div id="janeaustenr" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> janeaustenr</h2>
 <blockquote>
 <p>출처 : R로 배우는 텍스트 마이닝</p>
 </blockquote>
@@ -239,7 +242,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tm-eng.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(stop_words)</span>
 <span id="cb3-2"><a href="tm-eng.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="tm-eng.html#cb3-3" aria-hidden="true" tabindex="-1"></a>tidy_books <span class="ot">&lt;-</span> tidy_books <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="tm-eng.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span></code></pre></div>
+<span id="cb3-4"><a href="tm-eng.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span>
+<span id="cb3-5"><a href="tm-eng.html#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="tm-eng.html#cb3-6" aria-hidden="true" tabindex="-1"></a>tidy_books</span>
+<span id="cb3-7"><a href="tm-eng.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 217,609 x 4</span></span>
+<span id="cb3-8"><a href="tm-eng.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    book                linenumber chapter word       </span></span>
+<span id="cb3-9"><a href="tm-eng.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      </span></span>
+<span id="cb3-10"><a href="tm-eng.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 Sense &amp; Sensibility          1       0 sense      </span></span>
+<span id="cb3-11"><a href="tm-eng.html#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 Sense &amp; Sensibility          1       0 sensibility</span></span>
+<span id="cb3-12"><a href="tm-eng.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 Sense &amp; Sensibility          3       0 jane       </span></span>
+<span id="cb3-13"><a href="tm-eng.html#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 Sense &amp; Sensibility          3       0 austen     </span></span>
+<span id="cb3-14"><a href="tm-eng.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 Sense &amp; Sensibility          5       0 1811       </span></span>
+<span id="cb3-15"><a href="tm-eng.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 Sense &amp; Sensibility         10       1 chapter    </span></span>
+<span id="cb3-16"><a href="tm-eng.html#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 Sense &amp; Sensibility         10       1 1          </span></span>
+<span id="cb3-17"><a href="tm-eng.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Sense &amp; Sensibility         13       1 family     </span></span>
+<span id="cb3-18"><a href="tm-eng.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Sense &amp; Sensibility         13       1 dashwood   </span></span>
+<span id="cb3-19"><a href="tm-eng.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Sense &amp; Sensibility         13       1 settled    </span></span>
+<span id="cb3-20"><a href="tm-eng.html#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 217,599 more rows</span></span></code></pre></div>
 <p>tidytext 패키지의 <code>stop_words</code> 데이터셋에는 3개의 불용어 용어집(lexicon)이 들어있다. 지금처럼 모두 함께 사용할 수도 있고, 특정 분석에 더 적합한 경우 <code>filter()</code>를 사용해 1개 불용어 집합만 사용할 수도 있다.</p>
 <p>또한, dplyr의 <code>count()</code>를 사용해 모든 도서에서 가장 흔하게 나오는 단어를 찾을 수 있다.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tm-eng.html#cb4-1" aria-hidden="true" tabindex="-1"></a>tidy_books <span class="sc">%&gt;%</span></span>
@@ -275,13 +294,163 @@ Figure 2.1: The most common words in Jane Austen’s novels
 </p>
 </div>
 </div>
-<div id="ref." class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Ref.</h2>
-<ol style="list-style-type: decimal">
-<li><a href="https://cran.r-project.org/package=janeaustenr">janeaustenr</a></li>
-<li><a href="https://github.com/ropensci/tokenizers">tokenizers</a></li>
-</ol>
+<div id="gutenbergr" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> gutenbergr</h2>
+<p><a href="https://github.com/ropensci/gutenbergr">gutenbergr</a> 패키지는 구텐베르크 프로젝트 모음집 중 공공 저작물에 해당하는 텍스트에 접근할 수 있게 한다. 이 패키지에는 도서를 내려받기 위한 도구와 관심있는 작품을 찾는데 사용할 수 있는 구텐베르크 프로젝트 메타데이터의 전체 데이터셋이 포함되어 있다.</p>
+<blockquote>
+<p>gutenbergr에 대한 자세한 내용은 rOpenSci의 패키지 튜토리얼(<a href="https://ropensci.org/tutorials/gutenbergr_tutorial/)을" class="uri">https://ropensci.org/tutorials/gutenbergr_tutorial/)을</a> 참조하자.</p>
+</blockquote>
+<div id="단어-빈도" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> 단어 빈도</h3>
+<p>먼저 19세기 말부터 20세기 초반에 걸쳐 살았던 웰스의 공상 과학 소설과 판타지 소설을 살펴보자.</p>
+<ul>
+<li><a href="https://www.gutenberg.org/ebooks/35"><em>The Time Machine</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/36"><em>The War of the Worlds</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/5230"><em>The Invisible Man</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/159"><em>The Island of Doctor Moreau</em></a></li>
+</ul>
+<p>우리는 <code>gutenberg_download()</code>와 각 소설에 대한 구텐베르크 프로젝트 식별 번호를 사용해 이러한 작품에 액세스할 수 있다.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tm-eng.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
+<span id="cb6-2"><a href="tm-eng.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="tm-eng.html#cb6-3" aria-hidden="true" tabindex="-1"></a>hgwells <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">5230</span>, <span class="dv">159</span>))</span>
+<span id="cb6-4"><a href="tm-eng.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="tm-eng.html#cb6-5" aria-hidden="true" tabindex="-1"></a>tidy_hgwells <span class="ot">&lt;-</span> hgwells <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="tm-eng.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="tm-eng.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span></code></pre></div>
+<p>재미 삼아서 웰스의 소설에 가장 공통적으로 나오는 단어는 무엇인지 알아보자.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tm-eng.html#cb7-1" aria-hidden="true" tabindex="-1"></a>tidy_hgwells <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="tm-eng.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-3"><a href="tm-eng.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 11,811 x 2</span></span>
+<span id="cb7-4"><a href="tm-eng.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    word       n</span></span>
+<span id="cb7-5"><a href="tm-eng.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;  &lt;int&gt;</span></span>
+<span id="cb7-6"><a href="tm-eng.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 time     461</span></span>
+<span id="cb7-7"><a href="tm-eng.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 people   302</span></span>
+<span id="cb7-8"><a href="tm-eng.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 door     260</span></span>
+<span id="cb7-9"><a href="tm-eng.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 heard    249</span></span>
+<span id="cb7-10"><a href="tm-eng.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 black    232</span></span>
+<span id="cb7-11"><a href="tm-eng.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 stood    229</span></span>
+<span id="cb7-12"><a href="tm-eng.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 white    224</span></span>
+<span id="cb7-13"><a href="tm-eng.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 hand     218</span></span>
+<span id="cb7-14"><a href="tm-eng.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 kemp     213</span></span>
+<span id="cb7-15"><a href="tm-eng.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 eyes     210</span></span>
+<span id="cb7-16"><a href="tm-eng.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 11,801 more rows</span></span></code></pre></div>
+<p>이번에는 브론테(Bronte) 자매의 유명한 작품을 입수해 볼 텐데, 브론테 잗매는 제인 오스틴과 비슷한 시대를 살았지만 오히려 다른 문체로 글을 썼다.</p>
+<ul>
+<li><a href="https://www.gutenberg.org/ebooks/1260"><em>Jane Eyre</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/768"><em>Wuthering Heights</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/969"><em>The Tenant of Wildfell Hall</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/9182"><em>Villette</em></a></li>
+<li><a href="https://www.gutenberg.org/ebooks/767"><em>Agnes Grey</em></a></li>
+</ul>
+<p>각 소설에 구텐베르크 프로젝트 식별 번호를 다시 사용하고 <code>gutenberg_download()</code>를 사용하면 해당 텍스트에 액세스할 수 있다.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tm-eng.html#cb8-1" aria-hidden="true" tabindex="-1"></a>bronte <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">768</span>, <span class="dv">969</span>, <span class="dv">9182</span>, <span class="dv">767</span>))</span>
+<span id="cb8-2"><a href="tm-eng.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="tm-eng.html#cb8-3" aria-hidden="true" tabindex="-1"></a>tidy_bronte <span class="ot">&lt;-</span> bronte <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="tm-eng.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="tm-eng.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span></code></pre></div>
+<p>브론테 자매의 소설에서 가장 자주 출현하는 단어는 무엇인가?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tm-eng.html#cb9-1" aria-hidden="true" tabindex="-1"></a>tidy_bronte <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="tm-eng.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="tm-eng.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 23,297 x 2</span></span>
+<span id="cb9-4"><a href="tm-eng.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    word       n</span></span>
+<span id="cb9-5"><a href="tm-eng.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;  &lt;int&gt;</span></span>
+<span id="cb9-6"><a href="tm-eng.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 time    1065</span></span>
+<span id="cb9-7"><a href="tm-eng.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 miss     854</span></span>
+<span id="cb9-8"><a href="tm-eng.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 day      825</span></span>
+<span id="cb9-9"><a href="tm-eng.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 hand     767</span></span>
+<span id="cb9-10"><a href="tm-eng.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 eyes     714</span></span>
+<span id="cb9-11"><a href="tm-eng.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 don’t    666</span></span>
+<span id="cb9-12"><a href="tm-eng.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 night    648</span></span>
+<span id="cb9-13"><a href="tm-eng.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 heart    638</span></span>
+<span id="cb9-14"><a href="tm-eng.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 looked   601</span></span>
+<span id="cb9-15"><a href="tm-eng.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 door     591</span></span>
+<span id="cb9-16"><a href="tm-eng.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 23,287 more rows</span></span></code></pre></div>
+<p>우레스와 브론테 자매의 작품들에서 모두 “time,” “eyes,” and “hand” 라는 단어가 상위 10위 안에 속 “time,” “ey”time“,”ey Brontë sisters.</p>
+<p>이제 제인 오스틴, 브론테 자매 및 웰스의 작품에서 각 단어의 빈도를 계산해 보고 데이터 프레임을 함께 묶자. 우리는 tidyr의 <code>spread()</code>와 <code>gather()</code>를 사용해 데이터 프레임을 재구성함으로써 세 개의 소설을 그려서 비교하기에 알맞게 한다.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tm-eng.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb10-2"><a href="tm-eng.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="tm-eng.html#cb10-3" aria-hidden="true" tabindex="-1"></a>frequency <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="fu">mutate</span>(tidy_bronte, <span class="at">author =</span> <span class="st">&quot;Brontë Sisters&quot;</span>),</span>
+<span id="cb10-4"><a href="tm-eng.html#cb10-4" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">mutate</span>(tidy_hgwells, <span class="at">author =</span> <span class="st">&quot;H.G. Wells&quot;</span>),</span>
+<span id="cb10-5"><a href="tm-eng.html#cb10-5" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">mutate</span>(tidy_books, <span class="at">author =</span> <span class="st">&quot;Jane Austen&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="tm-eng.html#cb10-6" aria-hidden="true" tabindex="-1"></a>             <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">str_extract</span>(word, <span class="st">&quot;[a-z&#39;]+&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="tm-eng.html#cb10-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">count</span>(author, word) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="tm-eng.html#cb10-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">group_by</span>(author) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="tm-eng.html#cb10-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">mutate</span>(<span class="at">proportion =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="tm-eng.html#cb10-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">select</span>(<span class="sc">-</span>n) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="tm-eng.html#cb10-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> author, <span class="at">values_from =</span> proportion) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="tm-eng.html#cb10-12" aria-hidden="true" tabindex="-1"></a>             <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">Brontë Sisters</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">H.G. Wells</span><span class="st">`</span>,</span>
+<span id="cb10-13"><a href="tm-eng.html#cb10-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">&quot;author&quot;</span>,</span>
+<span id="cb10-14"><a href="tm-eng.html#cb10-14" aria-hidden="true" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">&quot;proportion&quot;</span>)</span>
+<span id="cb10-15"><a href="tm-eng.html#cb10-15" aria-hidden="true" tabindex="-1"></a>frequency</span>
+<span id="cb10-16"><a href="tm-eng.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 57,116 x 4</span></span>
+<span id="cb10-17"><a href="tm-eng.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    word      `Jane Austen` author          proportion</span></span>
+<span id="cb10-18"><a href="tm-eng.html#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;</span></span>
+<span id="cb10-19"><a href="tm-eng.html#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 a            0.00000919 Bronte Sisters  0.0000587 </span></span>
+<span id="cb10-20"><a href="tm-eng.html#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 a            0.00000919 H.G. Wells      0.0000147 </span></span>
+<span id="cb10-21"><a href="tm-eng.html#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 aback       NA          Bronte Sisters  0.00000391</span></span>
+<span id="cb10-22"><a href="tm-eng.html#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 aback       NA          H.G. Wells      0.0000147 </span></span>
+<span id="cb10-23"><a href="tm-eng.html#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 abaht       NA          Bronte Sisters  0.00000391</span></span>
+<span id="cb10-24"><a href="tm-eng.html#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 abaht       NA          H.G. Wells     NA         </span></span>
+<span id="cb10-25"><a href="tm-eng.html#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 abandon     NA          Bronte Sisters  0.0000313 </span></span>
+<span id="cb10-26"><a href="tm-eng.html#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 abandon     NA          H.G. Wells      0.0000147 </span></span>
+<span id="cb10-27"><a href="tm-eng.html#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 abandoned    0.00000460 Bronte Sisters  0.0000900 </span></span>
+<span id="cb10-28"><a href="tm-eng.html#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 abandoned    0.00000460 H.G. Wells      0.000177  </span></span>
+<span id="cb10-29"><a href="tm-eng.html#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 57,106 more rows</span></span></code></pre></div>
+<p>구텐베르그 프로젝트 내 UTF-8로 인코딩된 텍스트에 밑줄을 쳐서 강조한(기울임 꼴처럼) 몇 가지 사례가 들어 있으므로 여기서는 <code>str_extract()</code>를 사용할 것이다. tokenizer는 이렇게 강조 처리한 단어를 강조 처리를 하지 않은 단어와 서로 다른 단어로 여기지만, <code>str_extract()</code>를 사용해 보기 전에 우리가 초기 데이터 탐색 작업을 할 때에 보았듯이 우리는 ’<strong>any</strong>’와 ’any’를 따로 세기를 원하지 않는다.</p>
+<p>이제 그래프를 그려보자(Figure <a href="tm-eng.html#fig:plotcompare">2.2</a>).</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tm-eng.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb11-2"><a href="tm-eng.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="tm-eng.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 결측값(missing values)이 제거된 행(row)에 대한 경고가 표시될 수 있다.</span></span>
+<span id="cb11-4"><a href="tm-eng.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(frequency, <span class="fu">aes</span>(<span class="at">x =</span> proportion, <span class="at">y =</span> <span class="st">`</span><span class="at">Jane Austen</span><span class="st">`</span>, </span>
+<span id="cb11-5"><a href="tm-eng.html#cb11-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> <span class="fu">abs</span>(<span class="st">`</span><span class="at">Jane Austen</span><span class="st">`</span> <span class="sc">-</span> proportion))) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="tm-eng.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">color =</span> <span class="st">&quot;gray40&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="tm-eng.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">height =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="tm-eng.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> word), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="tm-eng.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="tm-eng.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="tm-eng.html#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.001</span>), </span>
+<span id="cb11-12"><a href="tm-eng.html#cb11-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">low =</span> <span class="st">&quot;darkslategray4&quot;</span>, <span class="at">high =</span> <span class="st">&quot;gray75&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="tm-eng.html#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>author, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="tm-eng.html#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-15"><a href="tm-eng.html#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Jane Austen&quot;</span>, <span class="at">x =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plotcompare"></span>
+<img src="01-tm-eng_files/figure-html/plotcompare-1.png" alt="Comparing the word frequencies of Jane Austen, the Bronte sisters, and H.G. Wells" width="100%" />
+<p class="caption">
+Figure 2.2: Comparing the word frequencies of Jane Austen, the Bronte sisters, and H.G. Wells
+</p>
+</div>
+<p>이 그림들 중에서 점선에 가까운 단어는 두 텍스트 집합에서 모두 비슷한 빈도를 보이는데, 예를 들면 오스틴과 브론테의 텍스트를 비교한 경우(빈도가 높은 상단에 ‘miss,’ ‘tiem,’ ‘day’가 있음)와 오스틴과 웰스의 텍스트를 비교한 경우(빈도가 높은 상단에 ’time,’ ‘day,’ ‘brother’가 있음)를 들 수 있다. 점선에서 멀리 떨어져 있는 단어는 어느 한쪽 텍스트 집합에서만 더 많이 발견되는 단어다. 예를 들어 오스틴-브론테 비교 그림에서 ’elizabeth,’ ‘anne,’ ‘fanny’와 같은 단어(모두 고유 명사)는 오스틴의 텍스트에는 많지만 브론테 텍스트에는 많지 않고, ’arthur’와 ’dog’는 브론테 텍스트에는 있지만 오스틴 텍스트에는 없다. 웰스를 제인 오스틴과 비교해 보면 웰스가 쓰는 ’beast,’ ‘guns,’ ‘feet,’ ‘black’과 같은 단어를 오스틴은 쓰지 않는 반면에, 오스틴이 사용하는 ’family,’ ‘friend,’ ‘letter,’ ’dear’와 같은 단어를 웰스는 쓰지 않는다.</p>
+<p>전반적으로 그림에서 오스틴-브론테 비교 그래프에 나오는 단어들이 오스틴-웰스 비교 그래프에 나오는 것보다 기울게 그어진 점선에 더 가까이 있다는 점에 주목하자. 또한 단어가 오스틴-브론테 그래프에서 빈도가 더 낮은 곳까지 퍼져 있다는 점에 주목하자. 오스텐-웰스 비교 그래프에서 빈도가 낮은 곳이 비어있다. 이러한 특성은 오스틴이 웰스보다는 브론테와 더 비슷한 단어를 사용함을 나타낸다. 또한 우리는 모든 단어가 세 가지 집합으로 이뤄진 텍스트 모두에 나오지는 않는다는 점과, 오스틴과 웰스의 빈도를 나타낸 그래프에 데이터 점이 적다는 것을 알 수 있다.</p>
+<p>이러한 단어 집합의 유사성과 차이점을 상관 검정을 통해 정량화(quantify, 수량화)해 보자. 오스틴과 브론테 자매 사이, 오스틴과 웰스 사이의 단어 빈도는 어떤 상관(correlation)이 있는가?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tm-eng.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">data =</span> frequency[frequency<span class="sc">$</span>author <span class="sc">==</span> <span class="st">&quot;Brontë Sisters&quot;</span>,],</span>
+<span id="cb12-2"><a href="tm-eng.html#cb12-2" aria-hidden="true" tabindex="-1"></a>         <span class="sc">~</span> proportion <span class="sc">+</span> <span class="st">`</span><span class="at">Jane Austen</span><span class="st">`</span>)</span>
+<span id="cb12-3"><a href="tm-eng.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-4"><a href="tm-eng.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Pearson&#39;s product-moment correlation</span></span>
+<span id="cb12-5"><a href="tm-eng.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-6"><a href="tm-eng.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  proportion and Jane Austen</span></span>
+<span id="cb12-7"><a href="tm-eng.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t = 111.06, df = 10346, p-value &lt; 2.2e-16</span></span>
+<span id="cb12-8"><a href="tm-eng.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb12-9"><a href="tm-eng.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb12-10"><a href="tm-eng.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.7285370 0.7461189</span></span>
+<span id="cb12-11"><a href="tm-eng.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb12-12"><a href="tm-eng.html#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       cor </span></span>
+<span id="cb12-13"><a href="tm-eng.html#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.7374529</span></span>
+<span id="cb12-14"><a href="tm-eng.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">data =</span> frequency[frequency<span class="sc">$</span>author <span class="sc">==</span> <span class="st">&quot;H.G. Wells&quot;</span>,], </span>
+<span id="cb12-15"><a href="tm-eng.html#cb12-15" aria-hidden="true" tabindex="-1"></a>         <span class="sc">~</span> proportion <span class="sc">+</span> <span class="st">`</span><span class="at">Jane Austen</span><span class="st">`</span>)</span>
+<span id="cb12-16"><a href="tm-eng.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-17"><a href="tm-eng.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Pearson&#39;s product-moment correlation</span></span>
+<span id="cb12-18"><a href="tm-eng.html#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-19"><a href="tm-eng.html#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  proportion and Jane Austen</span></span>
+<span id="cb12-20"><a href="tm-eng.html#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t = 35.229, df = 6008, p-value &lt; 2.2e-16</span></span>
+<span id="cb12-21"><a href="tm-eng.html#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb12-22"><a href="tm-eng.html#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb12-23"><a href="tm-eng.html#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.3925914 0.4345047</span></span>
+<span id="cb12-24"><a href="tm-eng.html#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb12-25"><a href="tm-eng.html#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       cor </span></span>
+<span id="cb12-26"><a href="tm-eng.html#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.4137673</span></span></code></pre></div>
+<p>우리가 그래프에서 볼 수 있었듯이 오스틴과 웰스 사이보다는 오스틴과 브론테 소설 사이에서 단어의 빈도가 더 많이 연관되어 있다.</p>
 
+</div>
 </div>
 </div>
             </section>
