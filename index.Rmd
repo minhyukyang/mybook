@@ -1,6 +1,6 @@
 --- 
 title: "R Book"
-author: "Min Hyuk Yang"
+author: "Min Hyuk Yang (minhyuk.yang@gmail.com)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -12,9 +12,10 @@ description: |
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
-# R Book
 
-나만의 R Book 만들기기
+# Preface {-}
+
+해당 페이지는 R 관련 지식 관리를 위해 개인적으로 운영하는 페이지입니다. 자료를 복사하시는 경우 출처를 꼭 밝혀주시기 바랍니다.
 
 
 ```{r include=FALSE}

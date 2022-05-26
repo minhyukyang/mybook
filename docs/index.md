@@ -1,7 +1,7 @@
 --- 
 title: "R Book"
-author: "Min Hyuk Yang"
-date: "2022-02-18"
+author: "Min Hyuk Yang (minhyuk.yang@gmail.com)"
+date: "2022-05-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -12,43 +12,10 @@ description: |
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
-# About
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+# Preface {-}
 
-## Usage 
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-
-```r
-bookdown::render_book()
-```
-
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
-
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-
-```r
-bookdown::serve_book()
-```
+해당 페이지는 R 관련 지식 관리를 위해 개인적으로 운영하는 페이지입니다. 자료를 복사하시는 경우 출처를 꼭 밝혀주시기 바랍니다.
 
 
 
