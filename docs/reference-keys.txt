@@ -17,3 +17,5 @@ fig:plotcompare
 janeaustenr
 gutenbergr
 단어-빈도
+math
+quiz
