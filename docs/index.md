@@ -1,7 +1,7 @@
 --- 
 title: "R Book"
 author: "Min Hyuk Yang (minhyuk.yang@gmail.com)"
-date: "2022-05-26"
+date: "2022-05-27"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
